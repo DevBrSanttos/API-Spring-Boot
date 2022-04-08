@@ -20,14 +20,10 @@ public class CategoriaResource {
 	@Autowired
 	private CategoriaService services;
 	
-	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<?> find(){
-		List<Categoria> categorias = services.findAll();
-		return ResponseEntity.ok().body(categorias);
-	}
-	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> find(@PathVariable Integer id) {
+		
+		
 		Categoria categoria = services.findById(id);
 		return ResponseEntity.ok().body(categoria);
 	}
