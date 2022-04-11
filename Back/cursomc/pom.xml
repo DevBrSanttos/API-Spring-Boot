@@ -29,12 +29,12 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- Dependencia de mapeamento objeto relacional  -->
+		<!-- Dependencia de mapeamento objeto relacional -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
-		
+
 		<!-- Dependencia do banco de dados H2 -->
 		<dependency>
 			<groupId>com.h2database</groupId>
@@ -45,6 +45,19 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
+
+		<!-- Dependencia de validação de dados -->
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+		</dependency>
+
+		<!-- Dependencia de validação de dados -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>6.1.5.Final</version>
 		</dependency>
 
 
