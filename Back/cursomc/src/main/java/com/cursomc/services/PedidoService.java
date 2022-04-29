@@ -31,6 +31,9 @@ public class PedidoService {
 	@Autowired
 	private ItemPedidoRepository itemPedidoRepository;
 	
+	@Autowired
+	private ClienteService clienteService;
+	
 	public Pedido findById(Integer id) {
 		Optional<Pedido> obj = repo.findById(id);
 		
@@ -44,6 +47,7 @@ public class PedidoService {
 		pedido.setInstante(new Date());
 		pedido.getPagamento().setEstado(EstadoPagamento.PENDENTE);
 		pedido.getPagamento().setPedido(pedido);
+		pedido.setCliente(clienteService.findById(pedido.getCliente().getId()));
 		
 		if(pedido.getPagamento() instanceof PagamentoComBoleto) {
 			PagamentoComBoleto pagto = (PagamentoComBoleto) pedido.getPagamento();
@@ -54,7 +58,8 @@ public class PedidoService {
 		
 		for(ItemPedido ip : pedido.getItens()) {
 			ip.setDesconto(0.0);
-			ip.setPreco(produtoService.findById(ip.getProduto().getId()).getPreco());
+			ip.setProduto(produtoService.findById(ip.getProduto().getId()));
+			ip.setPreco(ip.getProduto().getPreco());
 			ip.setPedido(pedido);
 		}
 		
