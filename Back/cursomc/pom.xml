@@ -64,11 +64,19 @@
 			<version>6.1.5.Final</version>
 		</dependency>
 
+		<!-- Dependencia de banco de dados mysql -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
-
+		
+		<!-- Dependencia para enviar emails -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId>
+		</dependency>
+		
+		
 	</dependencies>
 
 	<build>
