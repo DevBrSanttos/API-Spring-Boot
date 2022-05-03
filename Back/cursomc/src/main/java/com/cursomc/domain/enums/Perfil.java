@@ -1,14 +1,14 @@
 package com.cursomc.domain.enums;
 
-public enum TipoCliente {
+public enum Perfil {
 
-	PESSOAFISICA(1, "Pessoa Física"),
-	PESSOAJURIDICA(2, "Pessoa Jurídica");
+	ADMIN(1, "ROLE_ADMIN"),
+	CLIENTE(2, "ROLE_CLIENTE");
 	
 	private int cod;
 	private String descricao;
 	
-	private TipoCliente(int cod, String descricao) {
+	private Perfil(int cod, String descricao) {
 		this.cod = cod;
 		this.descricao = descricao;
 	}
@@ -21,11 +21,11 @@ public enum TipoCliente {
 		return descricao;
 	}
 	
-	public static TipoCliente toEnum(Integer cod) {
+	public static Perfil toEnum(Integer cod) {
 		if(cod == null)
 			return null;
 		
-		for (TipoCliente x : TipoCliente.values()) {
+		for (Perfil x : Perfil.values()) {
 			if(cod.equals(x.getCod()))
 				return x;
 		}
